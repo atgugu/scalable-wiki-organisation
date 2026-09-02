@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"properties":{"topic":{"type":"string"},"is_new_topic":{"type":"boolean"},"label":{"type":"string"},"one_line_summary":{"type":"string"},"related_titles":{"type":"array","items":{"type":"string"}}},"required":["topic","is_new_topic","label","one_line_summary","related_titles"]}

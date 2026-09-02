@@ -1,0 +1,46 @@
+# Arm A — the cheap pipeline (0 LLM calls). Values here are the pre-registered configuration
+# (configs/prereg.yaml -> fixed_configuration); k-matched values are filled in after arm B / C run.
+arm: A
+description: "nomic embeddings -> spherical k-means -> c-TF-IDF labels -> cosine kNN + MMR links -> wiki"
+
+embedding:
+  env_json: configs/env.json        # backend chosen by scripts/00_env_check.py (defaults if missing)
+  prefix: "clustering: "
+  max_seq_length: 2048
+  batch_size: 8                     # halved on CUDA OOM
+  normalize: true
+  cache_dir: runs/embeddings        # cached .npy keyed by ids + text sha256
+
+clustering:
+  algorithm: spherical_kmeans       # k-means++ init, argmax-dot assignment, renormalised centroids
+  n_init: 100
+  max_iter: 100
+  seeds: [1, 2, 3, 4, 5]
+  variants: [oracle, auto, two_level, k_matched]
+  # k_matched: k = number of topic pages produced by arm B (or C) on the same corpus/N.
+  # Filled after those runs, e.g. {dbpedia: {100: 17, 300: 38}}; a missing value skips the variant.
+  k_matched: {}
+  auto_k_grid: "round(k* x {0.25,0.5,0.75,1,1.25,1.5,2}) + {5,10,20}, cosine silhouette"
+
+labels:
+  method: ctfidf                    # Grootendorst 2022
+  ngram_range: [1, 2]
+  stop_words: english
+  min_df: 2                         # counted over individual documents
+  top_terms: 10
+  label_terms: 3
+  text: "title + body"
+
+links:
+  n_candidates: 10
+  n_links: 5
+  lambdas: [1.0, 0.7, 0.5]
+  headline_lambda: 0.7
+
+corpora:
+  dbpedia: {sizes: [100, 300, 1000], gold_level: l2, top_level: l1}
+  wikics: {sizes: [500, 1000], gold_level: class, top_level: null}
+
+output:
+  runs_root: runs                   # runs/A/<corpus>/<N>/s<seed>_<variant>_lam<lambda>/
+  write_wiki: true

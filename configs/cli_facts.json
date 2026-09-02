@@ -1,0 +1,37 @@
+{
+  "verified_on": "2026-09-02",
+  "cli_version": "2.1.258",
+  "pinned_model": "claude-sonnet-5",
+  "tools_flag_restricts_to": [
+    "Edit",
+    "Glob",
+    "Grep",
+    "Read",
+    "Write"
+  ],
+  "empty_tools_flag_yields_zero_tools": true,
+  "max_turns_flag_accepted": true,
+  "max_budget_flag_subtype": "error_max_budget_usd",
+  "mcp_servers_with_strict_mcp_config": [],
+  "slash_commands_disabled": [],
+  "user_session_hook_fired": false,
+  "json_schema_structured_output": true,
+  "thinking_blocks_present": true,
+  "ingest_1": {
+    "num_turns": 11,
+    "total_cost_usd": 0.1094686,
+    "cache_read": 60623,
+    "n_files": 7,
+    "permission_denials": 0,
+    "wall_s": 61.3
+  },
+  "ingest_2": {
+    "num_turns": 16,
+    "total_cost_usd": 0.1136406,
+    "cache_read": 61273,
+    "n_files": 10,
+    "permission_denials": 0,
+    "wall_s": 50.5
+  },
+  "smoke_total_cost_usd": 0.3398
+}

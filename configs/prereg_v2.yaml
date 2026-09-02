@@ -1,0 +1,68 @@
+# Pre-registration v2 — FROZEN at git tag prereg-v2. Written 2026-09-02 after "stop and reassess".
+# Supersedes the *claim* of prereg.yaml (v1, tag prereg-v1), which stays as the historical record.
+# Disclosure: this reframing was made after seeing arm-A quality/cost results and partial arm-B cost
+# results, and BEFORE any reproducibility replicate was run or the two completed arm-C runs were
+# compared to each other. Freeze (git tag prereg-v2) before the first new replicate starts.
+version: 2
+status: frozen
+frozen_on: "2026-09-02T18:20+02:00"
+frozen_before: "any fresh LLM-wiki replicate; any comparison of the two completed arm-C runs"
+llm_model: "claude-sonnet-5"
+llm_effort: "high"
+claude_md_sha256: "ce5e233883577e12cd1e96b08f766847add86c96419de3425059e8526b674a3d"
+written_on: "2026-09-02"
+
+claim: >
+  A wiki's ORGANIZING layer -- which pages belong together, what each group is called, and what is
+  related to what -- does not need an LLM. Separating it from the WRITING layer (summaries, entity
+  and concept pages, synthesis, which do need one) makes the organizing layer cheap, reproducible
+  and measurable. Karpathy's LLM-wiki pattern bundles the two; this thesis proposes the decomposition.
+
+what_is_not_claimed: >
+  That the pipeline writes anything, or that its organization is "better" than an LLM's on every
+  axis. The LLM is kept for prose. The comparison is on the organizing sub-problem only.
+
+three_properties_and_their_evidence:
+  reproducible:
+    experiment: "R — run-to-run agreement on the SAME 20 documents in the SAME order (primary, small-scale)"
+  cheap:
+    experiment: "cost per document, flat vs growing with wiki size (already measured: three LLM wikis at $0.07-0.10 per 100 pages; pipeline at cents, flat)"
+  measurable:
+    experiment: "agreement with ground truth (gold categories; real hyperlinks on WikiCS) -- already measured for the pipeline; extractable for the LLM wiki at the same N"
+
+primary_experiment_R:
+  corpus: "DBPedia, the first 20 documents of order-1 (a nested subset of the 100/300 tiers; identical raw text for every system)"
+  systems:
+    LLM_wiki: "arm B schema (sha256 in prereg.yaml), claude-sonnet-5, effort high; lint disabled (no milestone within 20 ingests)"
+    pipeline: "arm A: nomic-embed-text-v1.5, spherical k-means at oracle k for the 20-doc gold, c-TF-IDF top-3 labels, kNN10 + MMR 0.7 -> 5 links"
+    one_shot_labeler: "arm C (already run twice on the 100-doc order-1; the first 20 rows are the 20-doc replicates) -- exploratory, see below"
+  replicates:
+    LLM_wiki: "3 runs: replicate 1 = the existing main run's wiki at its 20th ingest commit (order-1, same docs, same order); replicates 2 and 3 = fresh runs"
+    pipeline_same_seed: "2 runs with seed 1 (identity check)"
+    pipeline_cross_seed: "5 seeds"
+  endpoints:
+    R1_partition: "pairwise ARI (and NMI) between runs' assignments of the 20 documents to topics/clusters"
+    R2_names: "fraction of topics whose name recurs across runs after normalization (best one-to-one matching), and mean judge-embedding (mpnet) similarity of matched names"
+    R3_links: "mean per-document Jaccard of the 5-link related sets across runs; fraction of documents with an identical link set"
+    descriptive: "number of topic / entity / concept pages per run and their slug Jaccard; cost and wall-clock per run"
+  predictions_frozen_before_data:
+    pipeline_same_seed: "R1 = 1.0, R2 = 1.0, R3 = 1.0 (byte-identical wiki_state.json)"
+    pipeline_cross_seed: "R1 >= 0.90 ARI (mean over 10 pairs); R3 = 1.0 (links depend on embeddings only)"
+    LLM_wiki: "R1 < 0.70 ARI (mean over 3 pairs); R2 exact-name recurrence < 0.50; R3 mean Jaccard < 0.40"
+  decision_rule: >
+    The reproducibility claim is SUPPORTED iff mean pairwise ARI(pipeline, cross-seed) - mean pairwise
+    ARI(LLM wiki) >= 0.20 with the document-bootstrap 95% CI of the difference excluding 0, AND
+    pipeline same-seed runs are byte-identical. It is FALSIFIED iff the LLM wiki's mean pairwise ARI
+    >= 0.85 (i.e. it is, in practice, reproducible) or the pipeline's cross-seed ARI < 0.70.
+  cost: "~$8-12 for two fresh LLM-wiki replicates (20 ingests each, ~$0.15-0.25 per ingest at this wiki size); pipeline replicates cost nothing"
+
+exploratory_not_confirmatory:
+  - "arm C run-1 vs run-2 on the same 100 documents in the same order: pairwise agreement of topic assignment, labels and related titles. Collected before this document existed, not looked at yet; reported as exploratory."
+  - "order effect: the same 20 documents ingested in a shuffled order (one LLM run, ~$4) -- Karpathy's pattern is order-dependent by design; the pipeline is order-invariant."
+
+second_rung_already_in_hand:
+  - "pipeline quality vs gold at N = 100 / 300 / 1000 / 2000 (DBPedia) and 100 / 500 / 1000 (WikiCS, real hyperlinks): NMI 0.74-0.79, hyperlink P@5 0.88 at 500"
+  - "LLM-wiki cost growth: three independent wikis, slope $0.072-0.099 per 100 pages"
+  - "LLM-wiki organization vs gold, extractable at ingest 20 / 30 / 62 from the paused runs' git history"
+
+start_small_rule: "20 documents first. Larger runs only if a specific question needs them; the paused 100-document runs stay paused."

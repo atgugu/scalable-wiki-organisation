@@ -1,0 +1,49 @@
+# Pre-registration v3 — FROZEN at git tag prereg-v3 (2026-09-02 evening), before any run below started.
+# Changes vs v2: (1) LLM model switched to Claude Haiku 4.5 for all NEW runs (user decision; cheaper,
+# faster); (2) hard ceiling of 20 documents per experiment (user rule); (3) the reproducibility test is
+# rerun on a STRUCTURED 20-document set where grouping is meaningful, with the pipeline at auto-k as
+# well as oracle k (fixes a confound found in the v2 set: 13 gold classes among 20 docs, oracle k only);
+# (4) a hybrid arm H is added. v2's two Sonnet replicates of the unstructured set were in flight and are
+# allowed to finish; they are reported as Sonnet results under v2's rule, separately.
+version: 3
+status: frozen
+frozen_on: "2026-09-02T19:10+02:00"
+llm_model: "claude-haiku-4-5"
+llm_effort_flag: "high (passed for uniformity; Haiku 4.5 ignores the effort parameter — verified: identical cost with and without)"
+cache_write_tier: "1h (as observed for Sonnet; re-verified from the first Haiku rows before pricing)"
+schema_sha256: "ce5e233883577e12cd1e96b08f766847add86c96419de3425059e8526b674a3d"   # arm-B CLAUDE.md, unchanged
+ceiling: "no experiment exceeds 20 documents"
+
+claim: "unchanged from v2: the organizing layer (grouping, naming, topical linking) does not need an LLM; separating it out makes it cheap, reproducible and measurable; the LLM is kept for prose. Scoped to TOPICAL structure; entity-level linking is a stated gap."
+
+structured_set:
+  path: "data/dbpedia_s/20"
+  design: "4 DBPedia l2 classes with distinct l1 parents x 5 documents each, drawn deterministically from the 300 tier (first 5 by order-1 position per class), ingest order shuffled with seed 20260902"
+  gold: "l2 (4 classes) primary; l1 identical to l2 here by construction"
+  why: "in the v2 first-20 set the gold itself had 13 classes for 20 documents, so grouping was nearly vacuous for every system and the LLM's one-topic-per-document behaviour could not be separated from the corpus"
+
+systems_on_the_structured_set:
+  pipeline_oracle: "arm A, k = 4"
+  pipeline_auto:   "arm A, k chosen by cosine silhouette (no gold information) — the fair comparison"
+  llm_wiki:        "arm B schema, Haiku 4.5, 2 replicates, same order, lint off"
+  labeler:         "arm C one-shot, Haiku 4.5, 2 replicates, same order"
+  replicates:      "pipeline 5 seeds per variant + same-seed identity pair; LLM arms 2 runs each"
+
+endpoints (same definitions as v2):
+  R1_partition: "pairwise ARI/NMI between runs (run-to-run); plus ARI/NMI vs gold l2 (descriptive, all systems)"
+  R2_names: "exact recurrence under best matching; judge (mpnet) similarity"
+  R3_links: "per-document link-set Jaccard; identical-set fraction"
+  descriptive: "topics per run vs gold 4; cost and wall-clock per run"
+predictions_frozen_before_data:
+  pipeline_same_seed: "byte-identical"
+  pipeline_cross_seed: "ARI >= 0.90 (oracle); auto-k may select k > 4 (fine-grained subjects) — its cross-seed ARI is reported without a threshold"
+  llm_wiki: "run-to-run ARI < 0.70; topics per run > 4 (over-splitting) in both replicates"
+  labeler: "run-to-run ARI < 0.85"
+decision_rule: "as v2: supported iff mean ARI(pipeline oracle cross-seed) - mean ARI(llm_wiki) >= 0.20 with 80% document-subsampling 95% CI excluding 0 AND same-seed byte-identical; falsified iff llm_wiki ARI >= 0.85 or pipeline oracle cross-seed ARI < 0.70. The auto-k variant and vs-gold numbers are reported alongside and do not enter the rule."
+
+hybrid_arm_H:
+  definition: "pipeline structure (arm A oracle-k run on data/dbpedia/20, seed 1) + one Haiku call per cluster to name it (A+) + one no-tools Haiku call per document to write its page given category and related titles"
+  measured: "total cost and wall-clock per document; the organizing layer's reproducibility is the pipeline's by construction (same seed -> identical structure); prose is not scored"
+  purpose: "makes 'keep the LLM for writing' concrete: same writer, reproducible skeleton, cost comparison against the LLM wiki at the same 20 documents (Sonnet replicates from v2 and, if run, Haiku)"
+
+disclosure: "v2's Sonnet replicates (unstructured first-20 set) were at 11/20 and 10/20 when v3 was frozen and were allowed to finish; they are analysed under v2's rule and reported as Sonnet. No Haiku run existed before this freeze."

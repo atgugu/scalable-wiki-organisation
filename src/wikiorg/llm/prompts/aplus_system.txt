@@ -1,0 +1,1 @@
+Name a cluster of encyclopedia articles: a noun phrase of at most 6 words at category granularity; no words 'cluster'/'category'.

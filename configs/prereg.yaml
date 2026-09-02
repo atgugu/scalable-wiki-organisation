@@ -1,0 +1,138 @@
+# Public copy: the historical local interpreter path was normalized.
+# SHA-256 of the frozen local file: 83b8e3f077355e66e448e999e699ce1897fe245dd357acbddce93059c1c928f2
+# Pre-registration — frozen at git tag `prereg-v1` before the first measured arm-B ingest.
+# Any change to this file or to src/wikiorg/llm/schema/CLAUDE.md creates a new arm version.
+version: 1
+frozen_on: "2026-09-02"
+thesis: "Self-organising wiki: embeddings + spherical k-means + c-TF-IDF + kNN/MMR vs an LLM-maintained wiki"
+
+hypothesis: >
+  A pipeline with no LLM inference (local sentence embeddings, spherical k-means, class-based TF-IDF
+  labels, kNN graph with MMR re-ranking) organises a document collection into a browsable wiki whose
+  categories, labels and related-page links are of quality close to an LLM-maintained wiki built with
+  Karpathy's pattern, at far lower cost.
+
+arms:
+  A:   "Cheap pipeline. 0 LLM calls."
+  A+:  "A, plus one LLM call per cluster to name it (k calls total)."
+  B:   "Faithful Karpathy incremental ingest with file tools, wiki state carried forward."
+  C:   "One-shot no-tools LLM labeler, one call per document."
+
+fixed_configuration:
+  embedding_model: "nomic-ai/nomic-embed-text-v1.5"
+  embedding_prefix: "clustering: "
+  max_seq_length: 2048
+  normalize: true
+  fallback_chain: ["eager attention", "onnx backend", "BAAI/bge-base-en-v1.5"]
+  judge_embedding_model: "sentence-transformers/all-mpnet-base-v2"   # different family, avoids circularity
+  clustering: "spherical k-means, k-means++ init, n_init=10, renormalised centroids"
+  labels: "c-TF-IDF (Grootendorst 2022), CountVectorizer(1,2)-grams, english stop words, min_df=2; label = top-3 terms"
+  links: "cosine kNN, 10 candidates, MMR lambda=0.7, 5 links"
+  llm_model: "claude-sonnet-5"       # pinned from the CLI init event, smoke 2026-09-02
+  llm_effort: "high"
+  effort_default_verified: >
+    Confirmed 2026-09-02 against the Anthropic API reference: output_config.effort defaults to "high"
+    (equivalent to omitting the field) for Sonnet 5, which supports low|medium|high|xhigh|max. Claude
+    Code's own default is "xhigh", and this user's settings.json sets effortLevel: xhigh, so every
+    measured call pins --effort high explicitly. Pinning the API default keeps the reported cost
+    transferable to any non-Claude-Code agent loop and avoids inflating the LLM baseline.
+  thinking: "left at the CLI/API default (adaptive on Sonnet 5); presence recorded per call from the stream trace"
+  cli_version: "2.1.258"
+  claude_md_sha256: "ce5e233883577e12cd1e96b08f766847add86c96419de3425059e8526b674a3d"
+  price_table: "configs/prices.yaml (fetched 2026-09-02)"
+  python: python3.12
+
+corpora:
+  primary:
+    name: "DeveloperOats/DBPedia_Classes"
+    filter: "len(text) > 1200 chars"
+    sampling: "nested stratified 100 subset 300 subset 1000 subset 2000, seed 20260902"
+    gold: "l1 (9), l2 (70), l3 (219)"
+    oracle_k: {100: 18, 300: 40, 1000: 70, 2000: 70}
+  link_corpus:
+    name: "WikiCS (Mernyei & Cangea 2020)"
+    subset: "500 and 1000 nodes by snowball + degree peeling, class floors 25/40"
+    text: "refetched from the MediaWiki API by pageid, cleaned"
+    gold: "induced undirected hyperlink edges; 10 classes"
+
+headline_comparison: >
+  Arm A (k = k_B, i.e. k-matched to the number of topic pages arm B produced; seed with the median NMI)
+  vs arm B on DBPedia_Classes N=300, ingest order-1. Fallback if only the minimal tier completes: N=100.
+
+primary_endpoints:
+  test: >
+    One-sided non-inferiority per endpoint: non-inferior iff the lower bound of the two-sided 95% BCa
+    bootstrap CI of (A - B) exceeds -delta (partition metrics: 80% subsampling per bootstrap.py's
+    docstring; per-document metrics: paired resampling). Reading the lower bound of a two-sided 95% CI
+    as a one-sided bound runs each individual test at effective one-sided alpha 0.025 (ICH E9 convention).
+    Holm (1979) step-down controls the family-wise one-sided alpha at 0.05 across the three endpoints
+    (this is the value the "alpha 0.05" figure names -- the family budget, not each endpoint's own alpha).
+    Falsified iff the *upper* bound of that same CI is below -delta. This is deliberately the more
+    conservative of the two standard readings of "one-sided test, alpha 0.05" (the other, less
+    conservative reading uses a two-sided 90% CI so each endpoint runs directly at alpha 0.05); the
+    conservative reading was chosen because it is harder to call the hypothesis supported, not easier.
+    Implemented in src/wikiorg/eval/bootstrap.py (non_inferiority, non_inferiority_partition,
+    holm_non_inferiority, decide) and covered by tests/test_eval_bootstrap.py.
+  alpha_family_one_sided: 0.05
+  alpha_per_endpoint_one_sided: 0.025
+  ci_convention: "two-sided 95% BCa; lower bound read one-sided per endpoint; Holm across endpoints at family alpha 0.05"
+  E1: {metric: "NMI vs l2", delta: 0.10, rationale: "half the TopicGPT-BERTopic gap of ~0.20"}
+  E2: {metric: "mean label similarity (mpnet cosine vs de-CamelCased gold l2 name)", delta: 0.10}
+  E3: {metric: "same-l2 link precision@5", delta: 0.10}
+
+cost_endpoint:
+  statement: "cloud-equivalent USD(A) <= 1/20 of list-price USD(B)"
+  expectation: ">= 1/100"
+  accounting: "tokens from modelUsage, USD recomputed from configs/prices.yaml, reconciled with total_cost_usd within 1%"
+
+absolute_floors:
+  statement: "independent of B; a BERTopic-level result must not count as support"
+  nmi_vs_l2_at_oracle_k: 0.55
+  p1_at_oracle_k: 0.60
+  at_N: 300
+
+decision_rule:
+  supported: "E1, E2 and E3 all non-inferior AND cost ratio >= 20 AND both floors met"
+  falsified: "upper CI bound of (A - B) < -delta on any primary endpoint, OR a floor fails"
+
+secondary_descriptive:   # reported with CIs, never a falsifier
+  - "human label ratings (raters are not blind to arm A's term-list format, and the student rates their own system; report with and without the student's ratings)"
+  - "A+ vs A: does one call per cluster close the label gap"
+  - "oracle-k, auto-k (silhouette) and two-level variants"
+  - "A vs C at N=1000"
+  - "WikiCS hyperlink precision@5 / MAP (A vs C at 500 and 1000; A vs B at 100 if that run happens)"
+  - "structure metrics against Kamps & Koolen 2009 reference values"
+  - "stability: A over 5 seeds, B over two ingest orders, C over two runs"
+  - "arm B marginal cost per ingest vs wiki size (OLS slope with bootstrap CI): the direct test of 'maintenance cost is near zero'"
+  - "LLM-as-judge agreement with human raters"
+
+guards:
+  k_mismatch: "if k_B (or k_C) is outside [0.5*k_oracle, 2*k_oracle], k-matched and oracle-k results are reported with equal prominence; the non-inferiority test still uses k-matched"
+  arm_b_stop_rule: >
+    after 20 ingests, fit cost vs wiki size and project both dollars and calendar time; if order-1 projects
+    above $400 list-equivalent or to finish after 2026-10-15, stop that order at N=200 (the N=100 snapshot is still taken)
+
+threats_stated_a_priori:
+  - >
+    RETIRED 2026-09-02 by measurement: arm A was expected to be disadvantaged by the 2048-token limit,
+    but the measured truncation fraction is 0/100, 0/300, 0/1000 and 0/2000 documents on DBPedia, so
+    arm A embeds every document in full and this confound does not apply to the primary corpus. Re-check
+    on WikiCS, whose articles are longer.
+  - "arm B's schema is our own authoring, since the gist prescribes none; its sha256 is frozen before the first measured ingest"
+  - "LLM nondeterminism: two ingest orders for B, two runs for C; between-run ARI/NMI is the noise floor for every A-vs-LLM difference"
+  - "DBPedia titles are derived from the first sentence (the dataset ships none)"
+  - "human raters are not blind to arm A's label format"
+  - "bootstrap over documents uses 80% subsampling without replacement for partition metrics, so duplicated documents cannot inflate NMI/ARI; per-document metrics use ordinary resampling"
+  - "deviations from the gist: replies are a single DONE line, and there is no human 'discuss' step (no human in the loop)"
+
+counter_evidence_addressed: >
+  Pham et al. (NAACL 2024) report BERTopic at NMI 0.50 / ARI 0.24-0.28 / P1 0.54-0.58 against TopicGPT at
+  0.70 / 0.58-0.60 / 0.73 on Wikipedia articles. That configuration used UMAP + HDBSCAN with an outlier class
+  and short-context embeddings. This design uses fixed-k spherical k-means over all documents with no outlier
+  class and whole-document embeddings, and reports P1/ARI/NMI on the same scale. The 0.55 NMI floor exists so
+  that a BERTopic-level result cannot be reported as supporting the hypothesis.
+
+analysis_freeze: "metrics code and thresholds tagged in git before the first arm-B ingest"
+artifacts_to_record_per_run:
+  ["git hash", "config hash", "claude_md_sha256", "model id", "cli version", "effort", "seeds",
+   "package versions", "GPU name", "corpus manifest sha256", "price table date"]

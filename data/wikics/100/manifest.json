@@ -1,0 +1,95 @@
+{
+  "acceptance": {
+    "all": true,
+    "class_floor_5": true,
+    "frac_degree_ge5_ge_0.70": true,
+    "median_degree_ge_6": true
+  },
+  "class_names": {
+    "0": "Computational linguistics",
+    "1": "Databases",
+    "2": "Operating systems",
+    "3": "Computer architecture",
+    "4": "Computer security",
+    "5": "Internet protocols",
+    "6": "Computer file systems",
+    "7": "Distributed computing architecture",
+    "8": "Web technology",
+    "9": "Programming language topics"
+  },
+  "corpus": "wikics",
+  "fetch_seconds": 4.6,
+  "graph": {
+    "class_counts": {
+      "Computational linguistics": 5,
+      "Computer architecture": 15,
+      "Computer file systems": 15,
+      "Computer security": 14,
+      "Databases": 5,
+      "Distributed computing architecture": 5,
+      "Internet protocols": 6,
+      "Operating systems": 15,
+      "Programming language topics": 15,
+      "Web technology": 5
+    },
+    "class_min": 5,
+    "degree_mean": 28.52,
+    "degree_median": 26.0,
+    "edges": 1426,
+    "frac_degree_ge5": 1.0,
+    "isolated": 0,
+    "n": 100
+  },
+  "length": {
+    "chars_max": 95828,
+    "chars_mean": 23390.5,
+    "chars_median": 18611,
+    "chars_min": 1444,
+    "chars_p10": 3773,
+    "chars_p25": 9301,
+    "chars_p75": 36197,
+    "chars_p90": 49691,
+    "n": 100,
+    "words_mean": 3605.1
+  },
+  "losses": {
+    "missing": 37,
+    "ok": 1311,
+    "short": 152
+  },
+  "n": 100,
+  "n_classes": 10,
+  "oracle_k": 10,
+  "orders": {
+    "order-1": "prefix-consistent across N (100 first, then 500 increment, then 1000 increment)",
+    "order-2": "first 100 ids re-shuffled with seed+1, rest as order-1"
+  },
+  "selection": {
+    "cap_fraction": 0.15,
+    "nested": true,
+    "peel_cap": 15,
+    "peel_floor": 5,
+    "pool_floor": 150,
+    "pool_size": 1500,
+    "seed": 20260902,
+    "seeds_per_class": 3,
+    "sizes": [
+      100,
+      500,
+      1000
+    ]
+  },
+  "sha256": {
+    "docs": "af140a0a7b0916e46265ff904c6ac49311c359af78ae06b829234824eb21d4aa",
+    "gold.jsonl": "037ff9ff2f82e95fb341d940ba4aac781bb5eb7116658f743ff227000a49718b",
+    "order-1.txt": "894f4aaf6f5a3a5cf8f970c083077f60b470b63b470bae2c4e3baa0bc095820d",
+    "order-2.txt": "f2535a5f292f3fd383335725f5818cafef48fa5d04e64cd5afbe4e649debeacb"
+  },
+  "source": {
+    "dataset": "WikiCS (Mernyei & Cangea 2020)",
+    "n_nodes_total": 11701,
+    "text": "MediaWiki API prop=extracts|revisions|info, explaintext, by pageid",
+    "url": "https://github.com/pmernyei/wiki-cs-dataset (dataset/data.json, dataset/metadata.json)"
+  },
+  "target_n": 100
+}

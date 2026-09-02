@@ -1,0 +1,42 @@
+{
+  "classes_l2": [
+    "Person",
+    "MusicalWork",
+    "SocietalEvent",
+    "Building"
+  ],
+  "corpus": "dbpedia_s",
+  "design": "4 l2 classes (distinct l1) x 5 docs, shuffled order seed 20260902",
+  "ids": [
+    "dbp-4374f1177d",
+    "dbp-5384d19008",
+    "dbp-11365ef46c",
+    "dbp-b6732057fa",
+    "dbp-b5cfc4ed11",
+    "dbp-6acac5f845",
+    "dbp-d7821175e4",
+    "dbp-7761bccee1",
+    "dbp-68bbd14ff6",
+    "dbp-5e56f526cb",
+    "dbp-c4888b4eda",
+    "dbp-ccd88ca2de",
+    "dbp-2a163317d0",
+    "dbp-fd97961a5d",
+    "dbp-968e10b0d6",
+    "dbp-b7b22abed1",
+    "dbp-d2e635a06d",
+    "dbp-dda9bf7fa3",
+    "dbp-fff0af6874",
+    "dbp-bd84ca2115"
+  ],
+  "n_classes": {
+    "l1": 4,
+    "l2": 4,
+    "l3": 17
+  },
+  "n_docs": 20,
+  "oracle_k": 4,
+  "purpose": "prereg_v3 structured reproducibility set",
+  "sha256_docs": "70b8bc0e65907c8f17628e85e5afcdcbe7cc51d7ae59a12b4da7dd36dd90a83f",
+  "source_tier": "dbpedia/300"
+}

@@ -1,0 +1,11 @@
+system,model,usd_total,usd_per_doc,wall_s_per_doc,note
+Pipeline (A): structure only,none (GPU),0.00015,7.499999999999999e-06,0.07997499999999999,embeddings + spherical k-means + c-TF-IDF + kNN/MMR; cloud-equivalent GPU price
+A+ : pipeline + LLM cluster names,claude-haiku-4-5,0.09889,0.0049445,,one call per cluster (13)
+Hybrid (H): pipeline structure + names + LLM-written pages,claude-haiku-4-5,0.47630300000000003,0.02381515,28.38725,19/20 pages written; one no-tools call per document
+"LLM wiki (B), first 20 ingests",claude-sonnet-5,4.5957796,0.22978898,91.9558,"agentic ingest, one session per document"
+"LLM wiki (B), replicate 2",claude-sonnet-5,4.1420284,0.20710142,80.55449999999999,"agentic ingest, one session per document"
+"LLM wiki (B), replicate 3",claude-sonnet-5,4.933323000000001,0.24666615000000003,95.96209999999999,"agentic ingest, one session per document"
+"LLM wiki (B), structured set, replicate 1",claude-haiku-4-5,2.274752,0.1137376,106.3962,"agentic ingest, one session per document"
+"LLM wiki (B), structured set, replicate 2",claude-haiku-4-5,2.2438296,0.11219148000000001,104.77645,"agentic ingest, one session per document"
+"One-shot labeler (C), first 20 calls",claude-sonnet-5,0.14227120000000001,0.0071135600000000005,4.1262,one no-tools call per document
+"One-shot labeler (C), structured set",claude-haiku-4-5,0.331297,0.01656485,29.474650000000004,one no-tools call per document

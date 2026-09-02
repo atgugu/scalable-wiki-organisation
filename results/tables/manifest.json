@@ -1,0 +1,19 @@
+{
+  "eval_code_hash": "8583b2cd4c2caaf853106200aa5fee595bc0433e8203050416e3a84d8dba94c7",
+  "generated": "2026-09-02T15:07:11+00:00",
+  "n_ledger_rows": 271,
+  "written": {
+    "ablation_mmr": "results/tables/ablation_mmr.csv",
+    "category_metrics": "results/tables/category_metrics.csv",
+    "category_metrics_runs": "results/tables/category_metrics_runs.csv",
+    "cost_quality": "results/tables/cost_quality.csv",
+    "cost_quality_runs": "results/tables/cost_quality_runs.csv",
+    "k_sensitivity": "results/tables/k_sensitivity.csv",
+    "label_metrics": "results/tables/label_metrics.csv",
+    "label_metrics_runs": "results/tables/label_metrics_runs.csv",
+    "link_metrics": "results/tables/link_metrics.csv",
+    "link_metrics_runs": "results/tables/link_metrics_runs.csv",
+    "stability": "results/tables/stability.csv",
+    "structure_metrics": "results/tables/structure_metrics.csv"
+  }
+}

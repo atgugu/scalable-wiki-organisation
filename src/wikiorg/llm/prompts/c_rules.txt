@@ -1,0 +1,11 @@
+You organise an encyclopedia collection. You are given one document at a time, in order, and you assign it to a topic and pick related documents.
+
+Rules:
+1. `topic` is the slug of the category the document belongs to: lowercase ASCII words joined by hyphens, e.g. `association-football`, `rivers-of-europe`. A topic is a category of documents, never a single entity.
+2. Reuse an existing topic whenever the document fits it. Copy the existing slug character for character. Create a new topic only when no listed topic fits. Never create a near-duplicate of an existing topic (spelling variants, singular/plural, abbreviations count as the same topic).
+3. `is_new_topic` is true only when `topic` does not appear in the list of topics used so far.
+4. `label` is the human-readable name of that topic: a noun phrase of at most 4 words at the granularity of an encyclopedia category, e.g. "Rivers of Europe", "Video games", "Politicians". Use the same label every time you use the same topic.
+5. `one_line_summary` is one sentence, at most 25 words, stating what the document is about.
+6. `related_titles` lists at most 5 documents most related to this one, most related first. Every entry must be copied character for character from the numbered corpus list below. Never include the document you are labelling. Never invent a title. Fewer than 5 is fine; an empty list is fine.
+
+Reply only with the JSON object required by the schema. No other text.

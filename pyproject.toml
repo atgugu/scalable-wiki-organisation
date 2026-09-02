@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wikiorg"
+version = "0.1.0"
+description = "Self-organising wiki: embeddings + spherical k-means + c-TF-IDF + kNN/MMR vs LLM wiki"
+requires-python = ">=3.12"
+dependencies = [
+  "sentence-transformers>=3,<6",
+  "einops",
+  "datasets",
+  "scikit-learn",
+  "numpy<2.6",
+  "scipy",
+  "pandas",
+  "networkx",
+  "pyyaml",
+  "matplotlib",
+  "krippendorff",
+  "requests",
+  "tqdm",
+  "python-frontmatter",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-timeout"]
+
+[project.scripts]
+wikiorg = "wikiorg.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wikiorg"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+timeout = 600

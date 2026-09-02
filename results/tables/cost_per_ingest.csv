@@ -1,0 +1,130 @@
+series,documents,usd_per_document
+"LLM wiki: DBPedia, order 1",1,0.113723
+"LLM wiki: DBPedia, order 1",2,0.147802
+"LLM wiki: DBPedia, order 1",3,0.163840
+"LLM wiki: DBPedia, order 1",4,0.189439
+"LLM wiki: DBPedia, order 1",5,0.237359
+"LLM wiki: DBPedia, order 1",6,0.247595
+"LLM wiki: DBPedia, order 1",7,0.223122
+"LLM wiki: DBPedia, order 1",8,0.199932
+"LLM wiki: DBPedia, order 1",9,0.197514
+"LLM wiki: DBPedia, order 1",10,0.223930
+"LLM wiki: DBPedia, order 1",11,0.286128
+"LLM wiki: DBPedia, order 1",12,0.248907
+"LLM wiki: DBPedia, order 1",13,0.199241
+"LLM wiki: DBPedia, order 1",14,0.250854
+"LLM wiki: DBPedia, order 1",15,0.245156
+"LLM wiki: DBPedia, order 1",16,0.213036
+"LLM wiki: DBPedia, order 1",17,0.265106
+"LLM wiki: DBPedia, order 1",18,0.350440
+"LLM wiki: DBPedia, order 1",19,0.265069
+"LLM wiki: DBPedia, order 1",20,0.327586
+"LLM wiki: DBPedia, order 1",21,0.228180
+"LLM wiki: DBPedia, order 1",22,0.293259
+"LLM wiki: DBPedia, order 1",23,0.243545
+"LLM wiki: DBPedia, order 1",24,0.151909
+"LLM wiki: DBPedia, order 1",25,0.205124
+"LLM wiki: DBPedia, order 1",26,0.287579
+"LLM wiki: DBPedia, order 1",27,0.283114
+"LLM wiki: DBPedia, order 1",28,0.241655
+"LLM wiki: DBPedia, order 1",29,0.268118
+"LLM wiki: DBPedia, order 1",30,0.300306
+"LLM wiki: DBPedia, order 1",31,0.244073
+"LLM wiki: DBPedia, order 1",32,0.353092
+"LLM wiki: DBPedia, order 1",33,0.275196
+"LLM wiki: DBPedia, order 1",34,0.289365
+"LLM wiki: DBPedia, order 1",35,0.293041
+"LLM wiki: DBPedia, order 1",36,0.387377
+"LLM wiki: DBPedia, order 1",37,0.336311
+"LLM wiki: DBPedia, order 1",38,0.401732
+"LLM wiki: DBPedia, order 1",39,0.320186
+"LLM wiki: DBPedia, order 1",40,0.394652
+"LLM wiki: DBPedia, order 1",41,0.447725
+"LLM wiki: DBPedia, order 1",42,0.435192
+"LLM wiki: DBPedia, order 1",43,0.541888
+"LLM wiki: DBPedia, order 1",44,0.443559
+"LLM wiki: DBPedia, order 1",45,0.086773
+"LLM wiki: DBPedia, order 1",46,0.571841
+"LLM wiki: DBPedia, order 1",47,0.406728
+"LLM wiki: DBPedia, order 1",48,0.379315
+"LLM wiki: DBPedia, order 1",49,0.338253
+"LLM wiki: DBPedia, order 1",50,0.336865
+"LLM wiki: DBPedia, order 1",51,0.324028
+"LLM wiki: DBPedia, order 1",52,0.359851
+"LLM wiki: DBPedia, order 1",53,0.425115
+"LLM wiki: DBPedia, order 1",54,0.467799
+"LLM wiki: DBPedia, order 1",55,0.388761
+"LLM wiki: DBPedia, order 1",56,0.351592
+"LLM wiki: DBPedia, order 1",57,0.344351
+"LLM wiki: DBPedia, order 1",58,0.538428
+"LLM wiki: DBPedia, order 1",59,0.304599
+"LLM wiki: DBPedia, order 1",60,0.403986
+"LLM wiki: DBPedia, order 1",61,0.384197
+"LLM wiki: DBPedia, order 1",62,0.377245
+"LLM wiki: DBPedia, order 2",1,0.213069
+"LLM wiki: DBPedia, order 2",2,0.159116
+"LLM wiki: DBPedia, order 2",3,0.181880
+"LLM wiki: DBPedia, order 2",4,0.213441
+"LLM wiki: DBPedia, order 2",5,0.165738
+"LLM wiki: DBPedia, order 2",6,0.234596
+"LLM wiki: DBPedia, order 2",7,0.194661
+"LLM wiki: DBPedia, order 2",8,0.232149
+"LLM wiki: DBPedia, order 2",9,0.248244
+"LLM wiki: DBPedia, order 2",10,0.207079
+"LLM wiki: DBPedia, order 2",11,0.357744
+"LLM wiki: DBPedia, order 2",12,0.266499
+"LLM wiki: DBPedia, order 2",13,0.238978
+"LLM wiki: DBPedia, order 2",14,0.296026
+"LLM wiki: DBPedia, order 2",15,0.271078
+"LLM wiki: DBPedia, order 2",16,0.223185
+"LLM wiki: DBPedia, order 2",17,0.279059
+"LLM wiki: DBPedia, order 2",18,0.367579
+"LLM wiki: DBPedia, order 2",19,0.232885
+"LLM wiki: DBPedia, order 2",20,0.299271
+"LLM wiki: DBPedia, order 2",21,0.250622
+"LLM wiki: DBPedia, order 2",22,0.214523
+"LLM wiki: DBPedia, order 2",23,0.328901
+"LLM wiki: DBPedia, order 2",24,0.307866
+"LLM wiki: DBPedia, order 2",25,0.412143
+"LLM wiki: DBPedia, order 2",26,0.361489
+"LLM wiki: DBPedia, order 2",27,0.408203
+"LLM wiki: DBPedia, order 2",28,0.467952
+"LLM wiki: DBPedia, order 2",29,0.346232
+"LLM wiki: DBPedia, order 2",30,0.249640
+LLM wiki: WikiCS,1,0.171929
+LLM wiki: WikiCS,2,0.199561
+LLM wiki: WikiCS,3,0.292028
+LLM wiki: WikiCS,4,0.166189
+LLM wiki: WikiCS,5,0.243860
+LLM wiki: WikiCS,6,0.246584
+LLM wiki: WikiCS,7,0.264539
+LLM wiki: WikiCS,8,0.175668
+LLM wiki: WikiCS,9,0.064888
+LLM wiki: WikiCS,10,0.181151
+LLM wiki: WikiCS,11,0.324008
+LLM wiki: WikiCS,12,0.337737
+LLM wiki: WikiCS,13,0.310614
+LLM wiki: WikiCS,14,0.201061
+LLM wiki: WikiCS,15,0.335462
+LLM wiki: WikiCS,16,0.284806
+LLM wiki: WikiCS,17,0.230163
+LLM wiki: WikiCS,18,0.281440
+LLM wiki: WikiCS,19,0.179450
+LLM wiki: WikiCS,20,0.316161
+LLM wiki: WikiCS,21,0.370842
+LLM wiki: WikiCS,22,0.282440
+LLM wiki: WikiCS,23,0.228708
+LLM wiki: WikiCS,24,0.323336
+LLM wiki: WikiCS,25,0.177561
+LLM wiki: WikiCS,26,0.341760
+LLM wiki: WikiCS,27,0.391151
+LLM wiki: WikiCS,28,0.426354
+LLM wiki: WikiCS,29,0.338491
+LLM wiki: WikiCS,30,0.222557
+LLM wiki: WikiCS,31,0.345811
+LLM wiki: WikiCS,32,0.224286
+Pipeline (full rebuild),20,0.00000750
+Pipeline (full rebuild),100,0.00000750
+Pipeline (full rebuild),300,0.00000743
+Pipeline (full rebuild),1000,0.00000741
+Pipeline (full rebuild),2000,0.00000941

@@ -1,0 +1,150 @@
+{
+  "allocation_rule": "N=2000: clip(round(2000*share),5,120) + largest-remainder top-up; smaller N: proportional to parent counts, floor 3; classes: top-5 l2 per l1 -> 40 at N=300, top-2 l2 per l1 -> 18 at N=100",
+  "build_seconds_pool": 35.8,
+  "class_counts": {
+    "l1": {
+      "Agent": 34,
+      "Device": 4,
+      "Event": 11,
+      "Place": 12,
+      "Species": 10,
+      "SportsSeason": 8,
+      "TopicalConcept": 4,
+      "UnitOfWork": 4,
+      "Work": 13
+    },
+    "l2": {
+      "Animal": 6,
+      "Athlete": 7,
+      "Building": 6,
+      "EducationalInstitution": 6,
+      "Engine": 4,
+      "FootballLeagueSeason": 4,
+      "Genre": 4,
+      "Horse": 4,
+      "LegalCase": 4,
+      "MusicalWork": 7,
+      "Organisation": 7,
+      "PeriodicalLiterature": 6,
+      "Person": 7,
+      "Politician": 7,
+      "RouteOfTransportation": 6,
+      "SocietalEvent": 6,
+      "SportsEvent": 5,
+      "SportsTeamSeason": 4
+    },
+    "l3": {
+      "AcademicJournal": 2,
+      "Album": 3,
+      "Architect": 1,
+      "ArtistDiscography": 2,
+      "AustralianRulesFootballPlayer": 1,
+      "AutomobileEngine": 4,
+      "BeautyQueen": 1,
+      "Bird": 4,
+      "Bridge": 3,
+      "ClassicalMusicComposition": 1,
+      "Congressman": 2,
+      "Convention": 1,
+      "Cricketer": 4,
+      "Economist": 1,
+      "Election": 2,
+      "FilmFestival": 1,
+      "FootballMatch": 2,
+      "GaelicGamesPlayer": 1,
+      "Governor": 2,
+      "GrandPrix": 3,
+      "HistoricBuilding": 2,
+      "Hospital": 2,
+      "Library": 1,
+      "Magazine": 2,
+      "MemberOfParliament": 3,
+      "MilitaryConflict": 2,
+      "MilitaryPerson": 2,
+      "MilitaryUnit": 2,
+      "Mollusca": 2,
+      "Monarch": 1,
+      "Museum": 1,
+      "MusicGenre": 4,
+      "Musical": 1,
+      "NationalFootballLeagueSeason": 4,
+      "Newspaper": 2,
+      "PoliticalParty": 3,
+      "PublicTransitSystem": 1,
+      "RaceHorse": 4,
+      "Religious": 1,
+      "Road": 3,
+      "School": 1,
+      "ShoppingMall": 1,
+      "SoccerClubSeason": 4,
+      "SoccerPlayer": 1,
+      "SupremeCourtOfTheUnitedStatesCase": 4,
+      "TradeUnion": 1,
+      "University": 4
+    }
+  },
+  "corpus": "dbpedia",
+  "filter": {
+    "dedup": [
+      "sha1(clean text)",
+      "normalised derived title"
+    ],
+    "min_chars_exclusive": 1200
+  },
+  "length": {
+    "chars_max": 2947,
+    "chars_mean": 1743.0,
+    "chars_median": 1659,
+    "chars_min": 1210,
+    "chars_p10": 1241,
+    "chars_p25": 1370,
+    "chars_p75": 1945,
+    "chars_p90": 2373,
+    "n": 100,
+    "words_mean": 284.1
+  },
+  "n": 100,
+  "n_classes": {
+    "l1": 9,
+    "l2": 18,
+    "l3": 47
+  },
+  "nested": true,
+  "oracle_k": 18,
+  "orders": {
+    "order-1": "prefix-consistent across N (100 first, then increments)",
+    "order-2": "first 100 ids re-shuffled with seed+1, rest as order-1"
+  },
+  "pool": {
+    "dropped_dup_title": 813,
+    "dropped_short": 292759,
+    "dropped_short_after_clean": 137,
+    "pool": 44030,
+    "title_fallback": 3770,
+    "total": 337739
+  },
+  "seed": 20260902,
+  "sha256": {
+    "docs": "79bd33764b3f8fa50e647d8cf5c1034d1b17d915abe8ea2c353f2d9a22affea8",
+    "gold.jsonl": "0017819c1d19a573ec6337891b493dd505eb6b63db328ede66ae1758c5aa6c3e",
+    "order-1.txt": "41599479d2ff4a11f9f18433e840dc5155ab921bb2eb5cf6a1ceb1b8adb723ea",
+    "order-2.txt": "34cae478f61c30342ad0f5c45ea1c29c7f8e7820790d8a958e1686cc46935d67"
+  },
+  "sizes": [
+    100,
+    300,
+    1000,
+    2000
+  ],
+  "source": {
+    "dataset": "DeveloperOats/DBPedia_Classes",
+    "license": "CC0",
+    "revision": "4d0aa96069f24063697e4df63b95be78d3f7fb7d",
+    "splits": [
+      "train",
+      "validation",
+      "test"
+    ]
+  },
+  "title_fallback_fraction_pool": 0.0856
+}

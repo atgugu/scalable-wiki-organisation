@@ -1,0 +1,52 @@
+{
+  "classes_l2": [
+    "Animal",
+    "Athlete",
+    "Engine",
+    "Genre",
+    "Horse",
+    "LegalCase",
+    "Organisation",
+    "PeriodicalLiterature",
+    "Person",
+    "Politician",
+    "RouteOfTransportation",
+    "SocietalEvent",
+    "SportsEvent"
+  ],
+  "corpus": "dbpedia",
+  "ids": [
+    "dbp-dda9bf7fa3",
+    "dbp-5e56f526cb",
+    "dbp-fc5932bf2b",
+    "dbp-f2898b2004",
+    "dbp-675f4620e9",
+    "dbp-4f10ca8b70",
+    "dbp-7fc6c8cf5a",
+    "dbp-fff0af6874",
+    "dbp-d1dc947d8e",
+    "dbp-2865d344b0",
+    "dbp-3b7edf44a6",
+    "dbp-088b17de57",
+    "dbp-862366f092",
+    "dbp-c7ac6a4333",
+    "dbp-b225918567",
+    "dbp-9b35442a82",
+    "dbp-244a9d22a0",
+    "dbp-00ed037fd2",
+    "dbp-f95685634f",
+    "dbp-181e97f54d"
+  ],
+  "n_classes": {
+    "l1": 8,
+    "l2": 13,
+    "l3": 18
+  },
+  "n_docs": 20,
+  "oracle_k": 13,
+  "order": "first 20 of data/dbpedia/300/orders/order-1.txt",
+  "purpose": "prereg_v2 reproducibility experiment; identical raw text to the LLM-wiki replicates",
+  "seed": 20260902,
+  "sha256_docs": "72268bf2d4aa669e704425822e1236d3a4009531b0d22b2ea80726202386f52c",
+  "source_tier": 300
+}

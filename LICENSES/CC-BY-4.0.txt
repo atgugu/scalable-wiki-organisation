@@ -1,0 +1,8 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Original documentation, figures and author-produced evidence in this repository are licensed
+under CC BY 4.0. You may share and adapt them for any purpose provided that appropriate credit is
+given, a link to the licence is supplied, and changes are indicated.
+
+Licence summary: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode

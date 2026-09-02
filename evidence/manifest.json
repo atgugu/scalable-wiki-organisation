@@ -1,0 +1,123 @@
+{
+  "description": "Sanitized evaluation ledger and ingest-level measurements",
+  "files": {
+    "ingests/B_dbpedia_N100_order2_N30.jsonl": {
+      "bytes": 30423,
+      "records": 30,
+      "sha256": "2a8f5e7e3e08023aaec97db61a09dc622db0405995eb17437ffd03afcbfa40f7"
+    },
+    "ingests/B_dbpedia_N300_order1_N20.jsonl": {
+      "bytes": 64165,
+      "records": 63,
+      "sha256": "a9d8603eda4b777532e9ca2a9cd151569a6bd9f0de65be5b1f57e2468e02087f"
+    },
+    "ingests/B_dbpedia_N300_order1_N62.jsonl": {
+      "bytes": 64165,
+      "records": 63,
+      "sha256": "a9d8603eda4b777532e9ca2a9cd151569a6bd9f0de65be5b1f57e2468e02087f"
+    },
+    "ingests/B_wikics_N100_order1_N32.jsonl": {
+      "bytes": 32282,
+      "records": 32,
+      "sha256": "2c4d478302addd711582db4a9326303bc08cddfdb3295f2f9b5d31bcdc79be7f"
+    },
+    "ingests/RS20_dbpedia_s_order1_r1_N20.jsonl": {
+      "bytes": 20424,
+      "records": 20,
+      "sha256": "560874b1a89063279e037b85a1cede5d7026d88fd1930fc406b7430f75c35dab"
+    },
+    "ingests/RS20_dbpedia_s_order1_r2_N20.jsonl": {
+      "bytes": 20408,
+      "records": 20,
+      "sha256": "8afef0dceed47b6875c3e469984e28810f065467434e7776da08e209207f96e8"
+    },
+    "ingests/R_dbpedia_N20_order1_r2_N20.jsonl": {
+      "bytes": 20300,
+      "records": 20,
+      "sha256": "42fae4cdbccd9488b32c8530c550c74ef6fa04f2df75eaf04496d74ce2bd9db6"
+    },
+    "ingests/R_dbpedia_N20_order1_r3_N20.jsonl": {
+      "bytes": 20324,
+      "records": 20,
+      "sha256": "844427844e78ab263743260b0db4b2bb998f5f88bb05dd7dd37867357bdc56c9"
+    },
+    "ledger.jsonl": {
+      "bytes": 2882267,
+      "records": 271,
+      "sha256": "4d8521198ee7b3379ebe5c8c5ad2483c1630a8584759d959d99151d9de299036"
+    }
+  },
+  "ingest_fields": [
+    "run_id",
+    "arm",
+    "kind",
+    "corpus",
+    "n",
+    "doc_id",
+    "ingest_index",
+    "attempt",
+    "status",
+    "subtype",
+    "is_error",
+    "model",
+    "model_reported",
+    "cli_version",
+    "effort",
+    "claude_md_sha256",
+    "prompt_sha256",
+    "wiki_pages_before",
+    "tokens",
+    "cost_usd",
+    "num_turns",
+    "tool_calls",
+    "duration_ms",
+    "duration_api_ms",
+    "wall_ms",
+    "waited_ms",
+    "cache_write_tier",
+    "started_at",
+    "ended_at",
+    "git_commit"
+  ],
+  "ledger_fields": [
+    "kind",
+    "arm",
+    "corpus",
+    "n_docs",
+    "replicate",
+    "variant",
+    "k",
+    "k_variant",
+    "seeds",
+    "model_id",
+    "cli_version",
+    "effort",
+    "config",
+    "config_hash",
+    "claude_md_sha256",
+    "corpus_manifest_sha256",
+    "eval_code_hash",
+    "cost",
+    "metrics",
+    "extra",
+    "package_versions",
+    "platform",
+    "python",
+    "gpu",
+    "price_table_date",
+    "git_hash",
+    "git_tag",
+    "run_git_hash",
+    "row_id",
+    "supersedes",
+    "timestamp"
+  ],
+  "schema_version": 1,
+  "source_counts": {
+    "ingest_files": 8,
+    "ingest_records": 268,
+    "ledger_rows": 271,
+    "ledger_source_rows": 302,
+    "table_analysis_cutoff": 271
+  }
+}

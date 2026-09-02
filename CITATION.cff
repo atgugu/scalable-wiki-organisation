@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or evidence, please cite the tagged research artifact."
+title: "Scalable Wiki Organisation: Code and Experimental Evidence"
+type: software
+authors:
+  - family-names: "Gugu"
+    given-names: "Antoniu Florian"
+version: "1.0.0"
+date-released: "2026-09-02"
+repository-code: "https://github.com/atgugu/scalable-wiki-organisation"
+url: "https://github.com/atgugu/scalable-wiki-organisation/releases/tag/thesis-artifact-v1.0"
+license: MIT
+keywords:
+  - wiki organisation
+  - large language models
+  - clustering
+  - information retrieval
+  - reproducible research
+abstract: >-
+  Implementation and sanitized experimental evidence for a comparison between an incremental
+  LLM-maintained wiki and a deterministic structural pipeline based on embeddings, clustering,
+  c-TF-IDF and MMR.
