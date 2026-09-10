@@ -9,6 +9,7 @@ description = "Self-organising wiki: embeddings + spherical k-means + c-TF-IDF +
 requires-python = ">=3.12"
 dependencies = [
   "sentence-transformers>=3,<6",
+  "transformers<5",
   "einops",
   "datasets",
   "scikit-learn",
