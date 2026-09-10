@@ -64,3 +64,7 @@ pdf-latex:
 
 pdf-polished:
 	$(DOCPY) thesis/tools/make_pdf.py --config thesis/thesis-polished.yaml --jobname thesis-latex-polished --check --submission
+
+pdf-revised:
+	$(DOCPY) thesis/tools/make_pdf.py --config thesis/thesis-revised.yaml --jobname thesis-latex-revised --check --submission
+	cp thesis/build/thesis-latex-revised.pdf thesis/build/Antoniu_Florian_Gugu_Master_Thesis.pdf

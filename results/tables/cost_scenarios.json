@@ -1,0 +1,373 @@
+{
+  "arm_c": {
+    "runs/C/dbpedia/100/C_dbpedia_N100_order1_r1": {
+      "cost_usd": 0.909224,
+      "model": "claude-sonnet-5",
+      "n": 100
+    },
+    "runs/C/dbpedia/100/C_dbpedia_N100_order1_r2": {
+      "cost_usd": 0.910822,
+      "model": "claude-sonnet-5",
+      "n": 100
+    },
+    "runs/C/dbpedia/24/C24_dbpedia_order1_r1": {
+      "cost_usd": 0.181361,
+      "model": "claude-sonnet-5",
+      "n": 24
+    },
+    "runs/C/dbpedia/24/C24_dbpedia_order1_r2": {
+      "cost_usd": 0.181913,
+      "model": "claude-sonnet-5",
+      "n": 24
+    },
+    "runs/C/dbpedia_s/20/CS20_dbpedia_s_order1_r1": {
+      "cost_usd": 0.331297,
+      "model": "claude-haiku-4-5",
+      "n": 20
+    },
+    "runs/C/dbpedia_s/20/CS20_dbpedia_s_order1_r2": {
+      "cost_usd": 0.372373,
+      "model": "claude-haiku-4-5",
+      "n": 20
+    },
+    "runs/C/wikics/100/C_wikics_N100_order1": {
+      "cost_usd": 3.446488,
+      "model": "claude-sonnet-5",
+      "n": 100
+    }
+  },
+  "fits": [
+    {
+      "ci_excludes_zero": true,
+      "ci_method": "BCa",
+      "first_quintile_mean_usd": 0.15370095,
+      "fit": "frozen at 20",
+      "ingests_total": 62,
+      "intercept_usd": 0.16258734692163684,
+      "last_pages": 469,
+      "last_quintile_mean_usd": 0.3020503,
+      "n": 20,
+      "pages_intercept": -10.631578947368403,
+      "pages_max": 142.0,
+      "pages_min": 0.0,
+      "pages_per_ingest": 7.488721804511279,
+      "pages_r2": 0.9974280445698359,
+      "r2": 0.6025637368045036,
+      "resampling": "BCa bootstrap of the OLS slope over ingests, 2,000 resamples, seed 0; ingests are treated as exchangeable and serial dependence is not modelled",
+      "run": "DBPedia, order 1",
+      "slope_ci_high_per_100": 0.13568109223704342,
+      "slope_ci_low_per_100": 0.05793201125972819,
+      "slope_usd_per_100_pages": 0.09882593099759289,
+      "slope_usd_per_page": 0.0009882593099759288,
+      "source": "results/extract/B_dbpedia_N300_order1_N62.calls.jsonl",
+      "spearman_rho": 0.7774436090225564,
+      "total_usd": 20.2077696
+    },
+    {
+      "ci_excludes_zero": true,
+      "ci_method": "BCa",
+      "first_quintile_mean_usd": 0.20604095384615387,
+      "fit": "post-hoc, all 62",
+      "ingests_total": 62,
+      "intercept_usd": 0.18799673304809766,
+      "last_pages": 469,
+      "last_quintile_mean_usd": 0.3851398307692308,
+      "n": 62,
+      "pages_intercept": -12.489159175039683,
+      "pages_max": 469.0,
+      "pages_min": 0.0,
+      "pages_per_ingest": 7.664274382412937,
+      "pages_r2": 0.999575092277108,
+      "r2": 0.4982773731825342,
+      "resampling": "BCa bootstrap of the OLS slope over ingests, 2,000 resamples, seed 0; ingests are treated as exchangeable and serial dependence is not modelled",
+      "run": "DBPedia, order 1",
+      "slope_ci_high_per_100": 0.06435524989625845,
+      "slope_ci_low_per_100": 0.04089754371457601,
+      "slope_usd_per_100_pages": 0.05210573024530043,
+      "slope_usd_per_page": 0.0005210573024530043,
+      "source": "results/extract/B_dbpedia_N300_order1_N62.calls.jsonl",
+      "spearman_rho": 0.7749238246329733,
+      "total_usd": 20.2077696
+    },
+    {
+      "ci_excludes_zero": true,
+      "ci_method": "BCa",
+      "first_quintile_mean_usd": 0.19187674999999998,
+      "fit": "frozen at 20",
+      "ingests_total": 30,
+      "intercept_usd": 0.1819646680166116,
+      "last_pages": 235,
+      "last_quintile_mean_usd": 0.29469855,
+      "n": 20,
+      "pages_intercept": -4.047368421052616,
+      "pages_max": 159.0,
+      "pages_min": 0.0,
+      "pages_per_ingest": 8.161654135338347,
+      "pages_r2": 0.9989812904208006,
+      "r2": 0.4271454318676261,
+      "resampling": "BCa bootstrap of the OLS slope over ingests, 2,000 resamples, seed 0; ingests are treated as exchangeable and serial dependence is not modelled",
+      "run": "DBPedia, order 2",
+      "slope_ci_high_per_100": 0.11654279053925462,
+      "slope_ci_low_per_100": 0.041326070822579344,
+      "slope_usd_per_100_pages": 0.07611656091045736,
+      "slope_usd_per_page": 0.0007611656091045736,
+      "source": "results/extract/B_dbpedia_N100_order2_N30.calls.jsonl",
+      "spearman_rho": 0.7353383458646616,
+      "total_usd": 8.229849
+    },
+    {
+      "ci_excludes_zero": false,
+      "ci_method": "BCa",
+      "first_quintile_mean_usd": 0.2074267,
+      "fit": "frozen at 20",
+      "ingests_total": 32,
+      "intercept_usd": 0.1985015630810849,
+      "last_pages": 146,
+      "last_quintile_mean_usd": 0.25180375,
+      "n": 20,
+      "pages_intercept": 1.242105263157892,
+      "pages_max": 104.0,
+      "pages_min": 0.0,
+      "pages_per_ingest": 5.415037593984963,
+      "pages_r2": 0.9915462567472388,
+      "r2": 0.10327639486199847,
+      "resampling": "BCa bootstrap of the OLS slope over ingests, 2,000 resamples, seed 0; ingests are treated as exchangeable and serial dependence is not modelled",
+      "run": "WikiCS",
+      "slope_ci_high_per_100": 0.13800254693332137,
+      "slope_ci_low_per_100": -0.019361527553140894,
+      "slope_usd_per_100_pages": 0.07205400502395029,
+      "slope_usd_per_page": 0.0007205400502395029,
+      "source": "results/extract/B_wikics_N100_order1_N32.calls.jsonl",
+      "spearman_rho": 0.38345864661654133,
+      "total_usd": 8.4805966
+    }
+  ],
+  "frozen_fit_checks": [
+    {
+      "frozen_fit_reproduced_to": 8.881784197001252e-16,
+      "n_done": 20,
+      "run": "B_dbpedia_N300_order1"
+    },
+    {
+      "frozen_fit_reproduced_to": 1.7763568394002505e-15,
+      "n_done": 20,
+      "run": "B_dbpedia_N100_order2"
+    },
+    {
+      "frozen_fit_reproduced_to": 8.881784197001252e-16,
+      "n_done": 20,
+      "run": "B_wikics_N100_order1"
+    }
+  ],
+  "generated_by": "scripts/10_cost_scenarios.py",
+  "notes": [
+    "agent next ingest = intercept + slope x (pages per ingest x documents), from the post-hoc 62-ingest fit (the shallower slope of the two fits); every scenario row lies beyond the 469-page fit domain",
+    "slope interval rows hold the intercept at its estimate",
+    "hosted embedding = recorded token count x hosted price; no DBPedia document reaches the 2,048-token cap, so the local and hosted inputs are identical",
+    "structural compute = measured cloud-equivalent full rebuild (mean over five seeds), which already contains the GPU embedding time; adding the hosted charge double-counts it, so the ratio is a lower bound"
+  ],
+  "prices": {
+    "hosted_embedding": {
+      "nomic-embed-text-v1.5": {
+        "url": "https://atlas.nomic.ai/pricing",
+        "usd_per_mtok": 0.1
+      },
+      "text-embedding-3-small": {
+        "url": "https://platform.openai.com/docs/pricing",
+        "usd_per_mtok": 0.02
+      },
+      "visited": "2026-09-02",
+      "voyage-4": {
+        "url": "https://docs.voyageai.com/docs/pricing",
+        "usd_per_mtok": 0.06
+      }
+    },
+    "path": "configs/prices.yaml"
+  },
+  "scenarios": [
+    {
+      "agent_next_ingest_frozen_fit_usd": 0.9026672512344378,
+      "agent_next_ingest_slope_ci_usd": [
+        0.5014467296433358,
+        0.6812330262017741
+      ],
+      "agent_next_ingest_usd": 0.5873493465440727,
+      "beyond_fit": true,
+      "cap_bound_ratio": 27.66600784475142,
+      "cap_bound_rebuild_usd": 0.021230000000000002,
+      "documents": 100,
+      "hosted_embedding_usd": 0.0040244,
+      "hosted_rebuild_usd": 0.0047744,
+      "index_pages": 766.4274382412937,
+      "ratio": 123.02055683312514,
+      "ratio_compute_only": 783.1324620587635,
+      "ratio_slope_ci": [
+        105.0282191779775,
+        142.68453129226165
+      ],
+      "sensitivity": {
+        "nomic-embed-text-v1.5": {
+          "hosted_rebuild_usd": 0.0047744,
+          "ratio": 123.02055683312514
+        },
+        "text-embedding-3-small": {
+          "hosted_rebuild_usd": 0.00155488,
+          "ratio": 377.74577237090494
+        },
+        "voyage-4": {
+          "hosted_rebuild_usd": 0.00316464,
+          "ratio": 185.5975234289122
+        }
+      },
+      "structural_compute_usd": 0.00075
+    },
+    {
+      "agent_next_ingest_frozen_fit_usd": 2.38282705986004,
+      "agent_next_ingest_slope_ci_usd": [
+        1.1283467228338122,
+        1.667705612509127
+      ],
+      "agent_next_ingest_usd": 1.3860545735360226,
+      "beyond_fit": true,
+      "cap_bound_ratio": 21.769350927218827,
+      "cap_bound_rebuild_usd": 0.06366999999999999,
+      "documents": 300,
+      "hosted_embedding_usd": 0.0120488,
+      "hosted_rebuild_usd": 0.014278800000000001,
+      "index_pages": 2299.282314723881,
+      "ratio": 97.07080241589087,
+      "ratio_compute_only": 621.5491361148082,
+      "ratio_slope_ci": [
+        79.02251749683532,
+        116.79592210193621
+      ],
+      "sensitivity": {
+        "nomic-embed-text-v1.5": {
+          "hosted_rebuild_usd": 0.014278800000000001,
+          "ratio": 97.07080241589087
+        },
+        "text-embedding-3-small": {
+          "hosted_rebuild_usd": 0.00463976,
+          "ratio": 298.7341098539628
+        },
+        "voyage-4": {
+          "hosted_rebuild_usd": 0.00945928,
+          "ratio": 146.52854905828167
+        }
+      },
+      "structural_compute_usd": 0.00223
+    },
+    {
+      "agent_next_ingest_frozen_fit_usd": 7.563386390049646,
+      "agent_next_ingest_slope_ci_usd": [
+        3.3224966990004794,
+        5.120359664584862
+      ],
+      "agent_next_ingest_usd": 4.181522868007848,
+      "beyond_fit": true,
+      "cap_bound_ratio": 19.70464571890037,
+      "cap_bound_rebuild_usd": 0.21221,
+      "documents": 1000,
+      "hosted_embedding_usd": 0.040245100000000006,
+      "hosted_rebuild_usd": 0.047655100000000006,
+      "index_pages": 7664.274382412937,
+      "ratio": 87.74554807371818,
+      "ratio_compute_only": 564.3080793532858,
+      "ratio_slope_ci": [
+        69.71964593507262,
+        107.4462054341479
+      ],
+      "sensitivity": {
+        "nomic-embed-text-v1.5": {
+          "hosted_rebuild_usd": 0.047655100000000006,
+          "ratio": 87.74554807371818
+        },
+        "text-embedding-3-small": {
+          "hosted_rebuild_usd": 0.01545902,
+          "ratio": 270.49081170784746
+        },
+        "voyage-4": {
+          "hosted_rebuild_usd": 0.03155706,
+          "ratio": 132.50673123566796
+        }
+      },
+      "structural_compute_usd": 0.00741
+    },
+    {
+      "agent_next_ingest_frozen_fit_usd": 14.964185433177656,
+      "agent_next_ingest_slope_ci_usd": [
+        6.456996664952861,
+        10.052722596121626
+      ],
+      "agent_next_ingest_usd": 8.175049002967597,
+      "beyond_fit": true,
+      "cap_bound_ratio": 19.08185659625507,
+      "cap_bound_rebuild_usd": 0.42842,
+      "documents": 2000,
+      "hosted_embedding_usd": 0.0811981,
+      "hosted_rebuild_usd": 0.1000181,
+      "index_pages": 15328.548764825873,
+      "ratio": 81.73569586872374,
+      "ratio_compute_only": 434.380924706036,
+      "ratio_slope_ci": [
+        64.55828160055891,
+        100.50903382609374
+      ],
+      "sensitivity": {
+        "nomic-embed-text-v1.5": {
+          "hosted_rebuild_usd": 0.1000181,
+          "ratio": 81.73569586872374
+        },
+        "text-embedding-3-small": {
+          "hosted_rebuild_usd": 0.03505962,
+          "ratio": 233.17563062484982
+        },
+        "voyage-4": {
+          "hosted_rebuild_usd": 0.06753885999999999,
+          "ratio": 121.04215266540771
+        }
+      },
+      "structural_compute_usd": 0.01882
+    }
+  ],
+  "structural_compute_usd": {
+    "100": 0.00075,
+    "1000": 0.00741,
+    "2000": 0.01882,
+    "300": 0.00223
+  },
+  "tokens": {
+    "100": {
+      "cap_tokens": 204800,
+      "docs": 100,
+      "max_per_doc": 701,
+      "mean_per_doc": 402.44,
+      "tokens": 40244,
+      "truncated_docs": 0
+    },
+    "1000": {
+      "cap_tokens": 2048000,
+      "docs": 1000,
+      "max_per_doc": 757,
+      "mean_per_doc": 402.451,
+      "tokens": 402451,
+      "truncated_docs": 0
+    },
+    "2000": {
+      "cap_tokens": 4096000,
+      "docs": 2000,
+      "max_per_doc": 1109,
+      "mean_per_doc": 405.9905,
+      "tokens": 811981,
+      "truncated_docs": 0
+    },
+    "300": {
+      "cap_tokens": 614400,
+      "docs": 300,
+      "max_per_doc": 701,
+      "mean_per_doc": 401.62666666666667,
+      "tokens": 120488,
+      "truncated_docs": 0
+    }
+  }
+}

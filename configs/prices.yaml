@@ -21,3 +21,14 @@ models:
 compute:
   gpu_usd_per_hour: 0.35   # T4 on-demand reference
   cpu_usd_per_hour: 0.05
+hosted_embedding:            # USD per million input tokens, marginal rate beyond any plan allowance; URLs reachable 2026-09-02
+  visited: "2026-09-02"
+  nomic-embed-text-v1.5:     # same encoder as the pipeline; headline hosted price
+    usd_per_mtok: 0.10       # atlas.nomic.ai/pricing (Plus and Business): "10M tokens included per month, then $1/10M"
+    url: https://atlas.nomic.ai/pricing
+  text-embedding-3-small:    # sensitivity only, not cited in the thesis: a different encoder changes the experiment
+    usd_per_mtok: 0.02
+    url: https://platform.openai.com/docs/pricing
+  voyage-4:                  # sensitivity only, not cited in the thesis
+    usd_per_mtok: 0.06
+    url: https://docs.voyageai.com/docs/pricing

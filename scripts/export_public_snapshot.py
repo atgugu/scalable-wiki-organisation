@@ -20,7 +20,7 @@ CONFIG_FILES = (
     "prereg_v2.yaml", "prereg_v3.yaml", "prices.yaml",
 )
 SCRIPT_FILES = (
-    "00_env_check.py", "02_reproducibility.py", "export_public_evidence.py",
+    "00_env_check.py", "02_reproducibility.py", "10_cost_scenarios.py", "export_public_evidence.py",
     "check_public_release.py", "export_public_snapshot.py",
 )
 
